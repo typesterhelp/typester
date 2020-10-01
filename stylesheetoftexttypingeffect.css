@@ -1,5 +1,5 @@
 
-h2
+h2   /* h2 css code*/ 
 {
   position:absolute;
   top:60%;
@@ -14,7 +14,7 @@ h2
   color:black;
 
 }
-h2::before
+h3::before              /*before part for h2 */
 {
 
   content:attr(data-Text);
@@ -30,7 +30,7 @@ h2::before
   white-space: nowrap;
 }
 
-@keyframes type
+@keyframes type      /*key frames for teh effict*/
 {
     0%
     {
