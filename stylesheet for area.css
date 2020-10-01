@@ -23,7 +23,7 @@ section::after
 }
 video
  {
-  position:absolute;
+  position:center;   /*by changing the postion from absolute to center will make it more responsive */
   top:10%;
   left: 0;
   width:100%;
