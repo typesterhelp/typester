@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TYPING SPEED TEST</title>
+    <link rel="stylesheet" href="stylesheet for area.css">
+    <link rel="stylesheet" href="stylesheetoftexttypingeffect.css">
+    <link rel="stylesheet" href="stylesheetforneonbutton.css">
+
+    <style>
+    *{padding:0; margin:0;box-sizing:border-box;}
+    .mainDiv{
+      background: black;
+      height:100vh;
+      width:100%;
+    }
+    h3{
+      text-align: center;
+      margin-bottom: 30px;
+      color:black;
+      text-shadow: 0 0 5px #03e9f4,
+                  0 0 25px #03e9f4,
+                  0 0 50px #03e9f4,
+                  0 0 200px #03e9f4;
+      font-size:3rem;
+    }
+    h4{
+      color:#03e9f4;
+      text-align: center;
+    font-size:1.5rem;
+    }
+    textarea{
+      background-color:#444;
+      box-shadow:0px 0px 3px #03e9f4;
+    border-radius: 10px 10px 0 0;
+    border:20px solid #03e9f4;
+    color:#03e9f4;
+    font-size:1.4rem;
+    }
+    .mainbtn{
+      border-radius:20px;
+      padding:10px 20px;
+      border:5px solid #03e9f4;
+      font-size:1rem;
+      background:#03e9f4;
+    }
+    .mainbtn:active{
+      background:#03e9f4;
+      color:#050801;
+      box-shadow: 0 0 5px #03e9f4,
+                  0 0 25px #03e9f4,
+                  0 0 50px #03e9f4,
+                  0 0 200px #03e9f4;
+    }
+    .mainbtn:hover{
+      background:#03e9f4;
+      color:#050801;
+      box-shadow: 0 0 5px #03e9f4,
+                  0 0 25px #03e9f4,
+                  0 0 50px #03e9f4,
+                  0 0 200px #03e9f4;
+    }
+    ::placeholder{
+      color:#03e9f4;
+      opacity:1
+      text-shadow:0 0 5px #03e9f4,
+                  0 0 25px #03e9f4,
+                  0 0 50px #03e9f4,
+                  0 0 200px #03e9f4;
+    }
+
+    </style>
+
+  </head>
+  <body>
+    <section>
+      <video src="smoke.mp4" autoplay muted loop>
+
+      </video><br><br><br><br><br><br><br><br><br>
+    <center><h1>
+         <span>T</span>
+         <span>Y</span>
+         <span>P</span>
+         <span>E</span>
+         <span>S</span>
+         <span>T</span>
+         <span>E</span>
+         <span>R</span>
+       </h1>
+       <h2 data-Text="TEST YOUR TYPING SPEED NOW"><font color="black">TEST YOUR TYPING SPEED NOW</font></h2>
+     </center>
+     <center>
+       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+     <a href="#h3">
+     TEST NOW
+     </a>
+     </center>
+         </section>
+
+<br><br><br><br><br><br><br><br><br>
+         <center>
+        <div class="mainDiv">
+         <div class="centerDiv">
+          <a name = h3><h3>WELCOME TO THE TYPING SPEED TEST</h3></a>
+           <br>
+           <h4 id="msg"> </h4>
+           <br>
+           <textarea id="mywords" rows="17" cols="100" placeholder="Don't Forget To click Done. ALSO RESET AFTER EVERY TEST "></textarea><br>
+           <button id="btn" class="mainbtn">Start</button>
+           <a href="file:///C:/Users/DEWANSH%20NEHRA/AppData/Local/atom/app-1.41.0/typestertesting.html" class="mainbtn" style="color:black;margin: 25px 50px -19px;">RESET</a>
+       </div>
+       </div>
+           </center>
+       <script>
+       const setOfWords = [
+                           "My name is Dewans nehra.I am learning new coding languages.",
+                           "This website is made using hmtl,css and java script.I am learning new coding languages.",
+                           "If you want to make a website like this then you can contact me.",
+                           "You can contact me by going to the contact us page and follow the given instruction on the page.",
+                           "I have another website called Tobortech.You can visit this website by searching tobortech on google or you can go to www.tobortech.xyz."
+                         ];
+                         const msg = document.getElementById('msg');
+                         const typeWords = document.getElementById('mywords');
+                         const btn = document.getElementById('btn');
+                         let startTime, endTime;
+
+
+
+                         const playGame = () => {
+                          let randomNumber = Math.floor(Math.random()*setOfWords.length);
+                          msg.innerText = setOfWords[randomNumber];
+                          let date = new Date();
+                          startTime = date.getTime();
+                          btn.innerText = "Done";
+                         }
+
+                         const endPlay = () => {
+                          let date = new Date();
+                          endTime = date.getTime();
+                          let totalTime = ((endTime - startTime)/1000);
+                          console.log(totalTime);
+
+                          let totalStr = typeWords.value;
+                          let wordCount = wordCounter(totalStr);
+                          console.log(wordCount);
+
+                          let speed = Math.floor((wordCount/totalTime) * 60);
+                          console.log(speed);
+
+                          // var mybr = document.createElement('br');
+
+
+                          let finalMsg = "You typed total at "+speed+ " words per minute.";
+                          finalMsg += compareWords(msg.innerText, totalStr);
+                          msg.innerText = finalMsg;
+                         }
+
+                          const wordCounter = (str) => {
+                            let response  = str.split(" ").length;
+                            return response;
+                         }
+
+                        const compareWords = (str1, str2) => {
+                          let words1 = str1.split(" ");
+                          let words2 = str2.split(" ");
+                          let cnt = 0;
+
+                        //	arrayName then foreach then it will take whole function with value and index no. of that array
+                          words1.forEach(function (item, index) {
+                          if (item == words2[index]) {
+                              cnt++;
+                            }
+                          })
+
+                          let errorWords = ( words1.length - cnt );
+                          return (cnt + " correct out of " + words1.length + " words and the total number of error are "+ errorWords + "." );
+                        }
+
+                         btn.addEventListener('click', function(){
+
+                          if(this.innerText == "Start"){
+                            typeWords.disabled = false;
+                            playGame();
+                          } else if(this.innerText == "Done"){
+                            typeWords.disabled = true;
+                            btn.innerText = "Start";
+                            endPlay();
+                          }
+
+                         })
+
+
+                        </script>
+
+
+
+
+
+  </body>
+</html>
+#made by DEWANS NEHRA
