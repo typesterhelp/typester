@@ -14,7 +14,7 @@ h2   /* h2 css code*/
   color:black;
 
 }
-h3::before              /*before part for h2 */
+h2::before              /*before part for h2 */
 {
 
   content:attr(data-Text);
@@ -30,7 +30,7 @@ h3::before              /*before part for h2 */
   white-space: nowrap;
 }
 
-@keyframes type      /*key frames for teh effict*/
+@keyframes type      /*key frames for the typing effect*/
 {
     0%
     {
